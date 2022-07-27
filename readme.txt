@@ -328,4 +328,4 @@ Once signed up, simply login to your my.clerk.io backend, which will guide you t
 * Send product object on order import instead of just product id
 
 = 1.0.0 - 2017-04-12 =
-* Initial release of WooCommerce extension for Clerk.io
+* Initial release of WooCommerce extension for Clerk.io.
