@@ -177,7 +177,7 @@ class Clerk_Widget_Content extends WP_Widget {
 			return;
 		}
 
-		wp_register_script( 'clerk_admin_widget', plugins_url( '../../assets/js/admin/widget.js', __FILE__ ), array( 'jquery' ), get_bloginfo( 'version' ), true );
+		wp_register_script( 'clerk_admin_widget', plugins_url( '../../assets/js/admin/widget.js', __FILE__ ), array( 'jquery' ), 'TEST_STUBBE', true );
 		wp_enqueue_script( 'clerk_admin_widget' );
 	}
 

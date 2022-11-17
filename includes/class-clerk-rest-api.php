@@ -635,7 +635,7 @@ class Clerk_Rest_Api extends WP_REST_Server {
 
 			$this->logger->log( 'Successfully generated JSON with ' . count( $final_products_array ) . ' products', array( 'error' => 'None' ) );
 
-			header( 'User-Agent: ClerkExtensionBot WooCommerce/v' . get_bloginfo( 'version' ) . ' Clerk/v' . get_file_data( CLERK_PLUGIN_FILE, array( 'version' ), 'plugin' )[0] . ' PHP/v' . phpversion() );
+			header( 'User-Agent: ClerkExtensionBot WooCommerce/v' . 'TEST_STUBBE' . ' Clerk/v' . get_file_data( CLERK_PLUGIN_FILE, array( 'version' ), 'plugin' )[0] . ' PHP/v' . phpversion() );
 			return $final_products_array;
 
 		} catch ( Exception $e ) {
@@ -784,7 +784,7 @@ class Clerk_Rest_Api extends WP_REST_Server {
 			// Merge Pages and Posts into 1 array.
 			$final_content_array = array_merge( $final_page_array, $final_post_array );
 			$this->logger->log( 'Successfully generated JSON with ' . count( $final_content_array ) . ' pages', array( 'error' => 'None' ) );
-			header( 'User-Agent: ClerkExtensionBot WooCommerce/v' . get_bloginfo( 'version' ) . ' Clerk/v' . get_file_data( CLERK_PLUGIN_FILE, array( 'version' ), 'plugin' )[0] . ' PHP/v' . phpversion() );
+			header( 'User-Agent: ClerkExtensionBot WooCommerce/v' . 'TEST_STUBBE' . ' Clerk/v' . get_file_data( CLERK_PLUGIN_FILE, array( 'version' ), 'plugin' )[0] . ' PHP/v' . phpversion() );
 			return $final_content_array;
 
 		} catch ( Exception $e ) {
@@ -890,7 +890,7 @@ class Clerk_Rest_Api extends WP_REST_Server {
 
 			$this->logger->log( 'Successfully generated category JSON with ' . count( $settings ) . ' settings', array( 'error' => 'None' ) );
 
-			header( 'User-Agent: ClerkExtensionBot WooCommerce/v' . get_bloginfo( 'version' ) . ' Clerk/v' . get_file_data( CLERK_PLUGIN_FILE, array( 'version' ), 'plugin' )[0] . ' PHP/v' . phpversion() );
+			header( 'User-Agent: ClerkExtensionBot WooCommerce/v' . 'TEST_STUBBE' . ' Clerk/v' . get_file_data( CLERK_PLUGIN_FILE, array( 'version' ), 'plugin' )[0] . ' PHP/v' . phpversion() );
 			return $settings;
 
 		} catch ( Exception $e ) {
@@ -1034,7 +1034,7 @@ class Clerk_Rest_Api extends WP_REST_Server {
 
 			$this->logger->log( 'Successfully generated category JSON with ' . count( $settings ) . ' settings', array( 'error' => 'None' ) );
 
-			header( 'User-Agent: ClerkExtensionBot WooCommerce/v' . get_bloginfo( 'version' ) . ' Clerk/v' . get_file_data( CLERK_PLUGIN_FILE, array( 'version' ), 'plugin' )[0] . ' PHP/v' . phpversion() );
+			header( 'User-Agent: ClerkExtensionBot WooCommerce/v' . 'TEST_STUBBE' . ' Clerk/v' . get_file_data( CLERK_PLUGIN_FILE, array( 'version' ), 'plugin' )[0] . ' PHP/v' . phpversion() );
 
 			// Return Clerk settings without public_key & private_key.
 			return $settings;
@@ -1107,7 +1107,7 @@ class Clerk_Rest_Api extends WP_REST_Server {
 			}
 
 			$this->logger->log( 'Successfully generated JSON with ' . count( $final_customer_array ) . ' customers', array( 'error' => 'None' ) );
-			header( 'User-Agent: ClerkExtensionBot WooCommerce/v' . get_bloginfo( 'version' ) . ' Clerk/v' . get_file_data( CLERK_PLUGIN_FILE, array( 'version' ), 'plugin' )[0] . ' PHP/v' . phpversion() );
+			header( 'User-Agent: ClerkExtensionBot WooCommerce/v' . 'TEST_STUBBE' . ' Clerk/v' . get_file_data( CLERK_PLUGIN_FILE, array( 'version' ), 'plugin' )[0] . ' PHP/v' . phpversion() );
 			return $final_customer_array;
 
 		} catch ( Exception $e ) {
@@ -1340,7 +1340,7 @@ class Clerk_Rest_Api extends WP_REST_Server {
 			$this->logger->error( 'ERROR category_endpoint_callback', array( 'error' => $e->getMessage() ) );
 
 		}
-		header( 'User-Agent: ClerkExtensionBot WooCommerce/v' . get_bloginfo( 'version' ) . ' Clerk/v' . get_file_data( CLERK_PLUGIN_FILE, array( 'version' ), 'plugin' )[0] . ' PHP/v' . phpversion() );
+		header( 'User-Agent: ClerkExtensionBot WooCommerce/v' . 'TEST_STUBBE' . ' Clerk/v' . get_file_data( CLERK_PLUGIN_FILE, array( 'version' ), 'plugin' )[0] . ' PHP/v' . phpversion() );
 		return $categories;
 	}
 
@@ -1447,7 +1447,7 @@ class Clerk_Rest_Api extends WP_REST_Server {
 			$this->logger->error( 'ERROR order_endpoint_callback', array( 'error' => $e->getMessage() ) );
 
 		}
-		header( 'User-Agent: ClerkExtensionBot WooCommerce/v' . get_bloginfo( 'version' ) . ' Clerk/v' . get_file_data( CLERK_PLUGIN_FILE, array( 'version' ), 'plugin' )[0] . ' PHP/v' . phpversion() );
+		header( 'User-Agent: ClerkExtensionBot WooCommerce/v' . 'TEST_STUBBE' . ' Clerk/v' . get_file_data( CLERK_PLUGIN_FILE, array( 'version' ), 'plugin' )[0] . ' PHP/v' . phpversion() );
 		return $order_array;
 	}
 
@@ -1469,12 +1469,12 @@ class Clerk_Rest_Api extends WP_REST_Server {
 			$response = new WP_REST_Response(
 				array(
 					'platform'         => 'WooCommerce',
-					'platform_version' => get_bloginfo( 'version' ),
+					'platform_version' => 'TEST_STUBBE',
 					'clerk_version'    => get_file_data( CLERK_PLUGIN_FILE, array( 'version' ), 'plugin' )[0],
 					'php_version'      => phpversion(),
 				)
 			);
-			$response->header( 'User-Agent', 'ClerkExtensionBot WooCommerce/v' . get_bloginfo( 'version' ) . ' Clerk/v' . get_file_data( CLERK_PLUGIN_FILE, array( 'version' ), 'plugin' )[0] . ' PHP/v' . phpversion() );
+			$response->header( 'User-Agent', 'ClerkExtensionBot WooCommerce/v' . 'TEST_STUBBE' . ' Clerk/v' . get_file_data( CLERK_PLUGIN_FILE, array( 'version' ), 'plugin' )[0] . ' PHP/v' . phpversion() );
 
 			$this->logger->log( 'Successfully generated Version JSON', array( 'response' => $response ) );
 
@@ -1506,7 +1506,7 @@ class Clerk_Rest_Api extends WP_REST_Server {
 			$plugins = get_plugins();
 
 			$response = new WP_REST_Response( $plugins );
-			$response->header( 'User-Agent', 'ClerkExtensionBot WooCommerce/v' . get_bloginfo( 'version' ) . ' Clerk/v' . get_file_data( CLERK_PLUGIN_FILE, array( 'version' ), 'plugin' )[0] . ' PHP/v' . phpversion() );
+			$response->header( 'User-Agent', 'ClerkExtensionBot WooCommerce/v' . 'TEST_STUBBE' . ' Clerk/v' . get_file_data( CLERK_PLUGIN_FILE, array( 'version' ), 'plugin' )[0] . ' PHP/v' . phpversion() );
 
 			$this->logger->log( 'Successfully generated Plugin JSON', array( 'response' => $response ) );
 
