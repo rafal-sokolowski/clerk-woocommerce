@@ -290,7 +290,32 @@ class Clerk_Rest_Api extends WP_REST_Server {
 
 			$final_products_array = array();
 
-			foreach ( $products->products as $product ) {
+			$products_response = (array) $products->products;
+
+			if($page == 1 || $page == '1'){
+				$bundle_query_args = array(
+					'post_type' => 'product',
+					'tax_query' => array(
+						array(
+							'taxonomy' => 'product_type',
+							'field' => 'slug',
+							'terms' => 'bundle',
+						),
+					),
+				);
+			$bundle_products_query = new WP_Query( $bundle_query_args );
+				$bundle_res_vars = $bundle_products_query->query_vars;
+				$extra_bundle_products = array();
+				if(isset($bundle_res_vars['post__not_in'])){
+					foreach($bundle_res_vars['post__not_in'] as $product_id){
+						$b_product = wc_get_product($product_id);
+						array_push($extra_bundle_products, $b_product);
+					}
+					$products_response = array_merge($products_response, $extra_bundle_products);
+				}
+			}
+
+			foreach ( $products_response as $product ) {
 
 				$stock_quantity = null;
 				$product_array  = array();
@@ -380,20 +405,20 @@ class Clerk_Rest_Api extends WP_REST_Server {
 				}
 
 				if ( $product->is_type( 'bundle' ) ) {
-					$price          = $product->min_raw_price;
-					$list_price     = $product->min_raw_regular_price;
+					$price          = (float)$product->min_raw_price;
+					$list_price     = (float)$product->min_raw_regular_price;
 					$bundled_items  = $product->get_bundled_items();
 					$stock_quantity = $product->get_stock_quantity();
 					if ( ! $price ) {
 						$price = 0;
 						foreach ( $bundled_items as $item ) {
-							$price += $item->get_price();
+							$price += (float)$item->get_price();
 						}
 					}
 					if ( ! $list_price ) {
 						$list_price = 0;
 						foreach ( $bundled_items as $item ) {
-							$list_price += $item->get_regular_price();
+							$list_price += (float)$item->get_regular_price();
 						}
 					}
 				}
